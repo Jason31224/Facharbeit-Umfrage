@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zusätzliche Informationen - Umfrage Fitnessstudio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Zusätzliche Umfrageergebnisse: Fitnessstudio - Jason Meyer</h1>
+    </header>
+
+    <section class="result">
+        <h2>Allgemeine Informationen (Es wurden jeweils 87 Personen befragt.)</h2>
+
+        <section class="result chart-container">
+            <h3>Wie lange trainieren Sie schon im Fitnessstudio?</h3>
+            <canvas id="trainingDurationChart"></canvas>
+        </section>
+
+        <section class="result chart-container">
+            <h3>Wie oft trainieren Sie wöchentlich?</h3>
+            <canvas id="frequencyChart"></canvas>
+        </section>
+
+        <section class="result chart-container">
+            <h3>Bevorzugen Sie Einzel- oder Gruppentraining?</h3>
+            <canvas id="trainingTypeChart"></canvas>
+        </section>
+
+        <section class="result chart-container">
+            <h3>Nutzung von Nahrungsergänzungsmitteln</h3>
+            <canvas id="supplementChart"></canvas>
+        </section>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const options = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        const trainingDurationData = {
+            labels: ['< 1 Jahr', '1-2 Jahre', '2-5 Jahre', '5-10 Jahre', '> 10 Jahre'],
+            datasets: [{
+                label: 'Anzahl der Personen',
+                data: [20, 25, 18, 16, 8],
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+        const trainingDurationCtx = document.getElementById('trainingDurationChart').getContext('2d');
+        new Chart(trainingDurationCtx, {
+            type: 'line',
+            data: trainingDurationData,
+            options: options
+        });
+
+        const frequencyData = {
+            labels: ['1x', '2x', '3x', '4x', '5x oder mehr'],
+            datasets: [{
+                label: 'Anzahl der Personen',
+                data: [9, 20, 30, 18, 10],
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+        const frequencyCtx = document.getElementById('frequencyChart').getContext('2d');
+        new Chart(frequencyCtx, {
+            type: 'line',
+            data: frequencyData,
+            options: options
+        });
+
+        const trainingTypeData = {
+            labels: ['Einzeltraining', 'Gruppentraining', 'Beides'],
+            datasets: [{
+                label: 'Anzahl der Personen',
+                data: [40, 25, 22],
+                backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1
+            }]
+        };
+        const trainingTypeCtx = document.getElementById('trainingTypeChart').getContext('2d');
+        new Chart(trainingTypeCtx, {
+            type: 'bar',
+            data: trainingTypeData,
+            options: options
+        });
+
+        const supplementData = {
+            labels: ['Ja', 'Nein'],
+            datasets: [{
+                label: 'Anzahl der Personen',
+                data: [45, 42],
+                backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        };
+        const supplementCtx = document.getElementById('supplementChart').getContext('2d');
+        new Chart(supplementCtx, {
+            type: 'bar',
+            data: supplementData,
+            options: options
+        });
+
+    </script>
+</body>
+
+</html>

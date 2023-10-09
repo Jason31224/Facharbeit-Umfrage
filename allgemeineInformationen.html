@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Allgemeine Informationen - Umfrageergebnisse Fitnessstudio</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <header>
+          <h1>Allgemeine Informationen: Digitale Trends im Fitnessstudio - Jason Meyer</h1>
+      </header>
+
+      <section class="result">
+          <h2>Allgemeine Informationen (Es wurden jeweils 87 Personen befragt.)</h2>
+         
+          <section class="result chart-container">
+            <h3>Altersgruppe</h3>
+            <canvas id="ageChart"></canvas>
+          </section>
+        
+          <section class="result chart-container">
+            <h3>Geschlecht</h3>
+            <canvas id="genderChart"></canvas>
+          </section>
+        
+          <section class="result chart-container">
+            <h3>Bevorzugte Trainingszeit</h3>
+            <canvas id="timeChart"></canvas>
+          </section>
+
+          <section class="result chart-container">
+            <h3>Genutzte Tools</h3>
+            <canvas id="toolsChart"></canvas>
+          </section>
+      </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+         // Daten für das Balkendiagramm
+         const data = {
+            labels: ['Fitness-Apps', 'Wearables', 'Online Kurse', 'Andere'],
+            datasets: [{
+                label: 'Anzahl der Nutzer',
+                data: [48, 20, 15, 5],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+    
+        // Optionen für das Diagramm (optional)
+        const options = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+    
+        // Erstellen Sie das Balkendiagramm
+        const ctx = document.getElementById('toolsChart').getContext('2d');
+        const toolsChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+
+
+        const ageData = {
+          labels: ['Unter 20', '20-29', '30-39', '40-49', '50+'],
+          datasets: [{
+              label: 'Anzahl der Personen',
+              data: [7, 36, 23, 13, 8],
+              backgroundColor: 'rgba(255, 99, 132, 0.6)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+              borderWidth: 1
+          }]
+      };
+
+        const ageCtx = document.getElementById('ageChart').getContext('2d');
+          new Chart(ageCtx, {
+              type: 'bar',
+              data: ageData,
+              options: options
+          });
+
+
+
+          const genderData = {
+            labels: ['Männlich', 'Weiblich', 'Anderes', 'Keine Angabe'],
+            datasets: [{
+                label: 'Anzahl der Personen',
+                data: [45, 39, 2, 1],
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const genderCtx = document.getElementById('genderChart').getContext('2d');
+          new Chart(genderCtx, {
+              type: 'bar',
+              data: genderData,
+              options: options
+          });
+
+
+          const timeData = {
+            labels: ['Morgen', 'Vormittag', 'Nachmittag', 'Abend', 'Nacht'],
+            datasets: [{
+                label: 'Anzahl der Personen',
+                data: [15, 7, 25, 35, 5],
+                backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1
+            }]
+        };
+
+          const timeCtx = document.getElementById('timeChart').getContext('2d');
+            new Chart(timeCtx, {
+                type: 'bar',
+                data: timeData,
+                options: options
+          });
+
+      </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+
+
+
+
+/* Grundlegende Stile */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* geändert, um die Struktur der Seite besser zu steuern */
+  align-items: center;
+  height: 100vh;
+}
+
+/* ... (anderer Code) ... */
+
+header {
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: #333;
+  color: #ffffff; /* Dies stellt sicher, dass der gesamte Text im Header weiß ist */
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+header h1, header h2 {
+  color: #ffffff; /* Explizite Einstellung der Textfarbe für Überschriften im Header */
+}
+
+/* ... (anderer Code) ... */
+
+
+/* Navigations-Stile */
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin-top: 20px;
+}
+
+/* Button-Stile */
+
+button {
+  background-color: #007BFF;
+  border: none;
+  color: #fff;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  
+  width: 350px;         /* feste Breite für alle Schaltflächen */
+  height: 50px;         /* feste Höhe für alle Schaltflächen */
+  line-height: 20px;    /* Hiermit wird sichergestellt, dass der Text vertikal zentriert ist */
+  white-space: nowrap;  /* Verhindert, dass der Text auf mehrere Zeilen umgebrochen wird */
+  overflow: hidden;     /* Versteckt überfließenden Text, optional je nach Bedarf */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Ergebnis-Stile */
+
+.result {
+  background-color: #ffffff;
+  margin: 20px 0; /* geändert für besseres Layout */
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Diagramm-Container */
+
+.chart-container {
+  position: relative;
+  height: 60vh;
+  width: 80%;
+  margin: 20px 0;
+}
+
+/* Footer-Stile */
+
+footer {
+  background-color: #333;
+  color: #ffffff;
+  text-align: center;
+  padding: 1em 0;
+  position: fixed; /* geändert zu fixed, so dass der Footer immer sichtbar ist */
+  bottom: 0;
+  width: 100%;
+}

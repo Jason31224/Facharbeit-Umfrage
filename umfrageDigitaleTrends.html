@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umfrageergebnisse: Digitale Trends im Fitnessstudio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Umfrageergebnisse: Digitale Trends im Fitnessstudio - Jason Meyer</h1>
+    </header>
+
+
+    <section class="result chart-container">
+          <h2>Genutzte Tools</h2>
+          <canvas id="toolsChart"></canvas>
+      </section>
+      
+   
+    <section class="result chart-container">
+        <h2>Wie relevant sind für sie digitale Angebote ( 1 = sehr unrelevant bis 5 = sehr relevant )</h2>
+        <canvas id="digitalImportanceChart"></canvas>
+    </section>
+
+    <section class="result chart-container">
+        <h2>Würden sie mehr bezahlen für zusätzliche digitale Dienstleistungen?</h2>
+        <canvas id="extraDigitalChart"></canvas>
+    </section>
+
+    <section class="result chart-container">
+        <h2>Nutzung digitaler Trainingsprogramme vs. traditionelle Trainingsmethoden (1 = Sehr Traditionell --- 5 = Sehr Digital)</h2>
+        <canvas id="digitalVsTraditionalChart"></canvas>
+    </section>
+
+    <section class="result chart-container">
+        <h2>Glauben Sie, dass digitale Angebote traditionelle Trainingsmethoden in Zukunft ersetzen könnten?</h2>
+        <canvas id="futureDigitalChart"></canvas>
+    </section>
+
+    <section class="result chart-container">
+        <h2>Gewünschte digitale Trends oder Technologien</h2>
+        <canvas id="futureTrendsChart"></canvas>
+    </section>
+
+    <section class="result chart-container">
+        <h2>Wahrscheinlichkeit der Nutzung eines rein digitalen Fitness-Angebots (1 = sehr unwarscheinlich --- 5 sehr warscheinlich) </h2>
+        <canvas id="pureDigitalChart"></canvas>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Erstellen Sie den Context für die Diagramme
+        const toolsChartCtx = document.getElementById('toolsChart').getContext('2d');
+        const digitalImportanceChartCtx = document.getElementById('digitalImportanceChart').getContext('2d');
+        const extraDigitalChartCtx = document.getElementById('extraDigitalChart').getContext('2d');
+        const digitalVsTraditionalChartCtx = document.getElementById('digitalVsTraditionalChart').getContext('2d');
+        const futureDigitalChartCtx = document.getElementById('futureDigitalChart').getContext('2d');
+        const futureTrendsChartCtx = document.getElementById('futureTrendsChart').getContext('2d');
+        const pureDigitalChartCtx = document.getElementById('pureDigitalChart').getContext('2d');
+
+        // Diagramm für "Relevanz digitaler Angebote"
+        new Chart(toolsChartCtx, {
+            type: 'bar',
+            data: {
+              labels: ['Fitness-Apps', 'Wearables', 'Online Kurse', 'Andere'],
+              datasets: [{
+                  label: 'Anzahl der Nutzer',
+                  data: [48, 20, 15, 5],
+                  backgroundColor: [
+                      'rgba(75, 192, 192, 0.6)',
+                      'rgba(255, 206, 86, 0.6)',
+                      'rgba(255, 99, 132, 0.6)',
+                      'rgba(153, 102, 255, 0.6)'
+                  ],
+                  borderColor: [
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(153, 102, 255, 1)'
+                  ],
+                  borderWidth: 1
+              }]             
+            }
+        });
+
+
+        new Chart(digitalImportanceChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1', '2', '3', '4', '5'],
+                datasets: [{
+                    label: 'Anzahl der Personen',
+                    data: [7, 12, 28, 22, 18],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // Diagramm für "Zusätzliche digitale Dienstleistungen"
+        new Chart(extraDigitalChartCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Ja', 'Vielleicht', 'Nein'],
+                datasets: [{
+                    data: [31, 27, 29],
+                    backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)']
+                }]
+            }
+        });
+
+        // Diagramm für "Digital vs. Traditionell"
+        new Chart(digitalVsTraditionalChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1', '2', '3', '4', '5'],
+                datasets: [{
+                    label: 'Anzahl der Personen',
+                    data: [15, 18, 30, 17, 7],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // Diagramm für "Zukünftiger Ersatz von traditionellen Methoden"
+        new Chart(futureDigitalChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Ja', 'Nein', 'Unsicher'],
+                datasets: [{
+                    data: [25, 48, 14],
+                    backgroundColor: ['rgba(255, 159, 64, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(201, 203, 207, 0.5)']
+                }]
+            }
+        });
+
+        // Diagramm für "Gewünschte digitale Trends oder Technologien"
+        new Chart(futureTrendsChartCtx, {
+            type: 'polarArea',
+            data: {
+                labels: ['VR-Training', 'Live-Streaming-Kurse', 'Ernährungs- und Fitness-Tracking', 'Interaktive Trainingsgeräte', 'Andere'],
+                datasets: [{
+                    data: [17, 20, 32, 24, 8],
+                    backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)', 'rgba(255, 159, 64, 0.5)']
+                }]
+            }
+        });
+
+        // Diagramm für "Wahrscheinlichkeit der Nutzung eines rein digitalen Fitness-Angebots"
+        new Chart(pureDigitalChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5'],
+                datasets: [{
+                    label: 'Anzahl der Personen',
+                    data: [23, 20, 25, 12, 7],
+                    fill: false,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    tension: 0.1
+                }]
+            }
+        });
+          
+
+    </script>
+
+</body>
+
+</html>
